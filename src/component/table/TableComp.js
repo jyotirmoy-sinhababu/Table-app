@@ -2,14 +2,15 @@ import React from 'react';
 
 const TableComp = ({ arr, header }) => {
   return (
-    <table className='table-cnt' style={{ width: '100%' }}>
+    <table className='table-cnt'>
       <thead>
         <tr>
           {header.name ? <th>{header.name}</th> : null}
           {header.email ? <th>{header.email}</th> : null}
-          {header.role ? <th>{header.role}</th> : null}
-          {header.joining ? <th>{header.joining}</th> : null}
           {header.city ? <th>{header.city}</th> : null}
+
+          {header.joining ? <th>{header.joining}</th> : null}
+          {header.role ? <th>{header.role}</th> : null}
         </tr>
       </thead>
       <tbody>

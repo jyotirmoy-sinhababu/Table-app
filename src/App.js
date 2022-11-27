@@ -8,6 +8,7 @@ import { data } from './component/utils/JasonData';
 function App() {
   const [loopData, setLoopData] = useState([]);
   const [secondLoopData, setSecondLoopData] = useState([]);
+  const [thirdLoopData, setThirdLoopData] = useState([]);
 
   const firstTableHead = { name: 'Name', email: 'Email Address', role: 'Role' };
   const secondTableHead = {
@@ -43,6 +44,17 @@ function App() {
           };
         })
       );
+      setThirdLoopData(
+        data.map((item) => {
+          return {
+            name: item?.person?.name,
+            joining: item?.joiningDate,
+            city: item?.city,
+            role: item?.role,
+            img: item?.person?.avatar,
+          };
+        })
+      );
     }
   }, []);
   return (
@@ -52,6 +64,9 @@ function App() {
       </div>
       <div>
         <TableComp arr={secondLoopData} header={secondTableHead} />
+      </div>
+      <div>
+        <TableComp arr={thirdLoopData} header={thirdTableHead} />
       </div>
     </div>
   );
