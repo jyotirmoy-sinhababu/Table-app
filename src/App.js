@@ -7,6 +7,7 @@ import { data } from './component/utils/JasonData';
 
 function App() {
   const [loopData, setLoopData] = useState([]);
+  const [secondLoopData, setSecondLoopData] = useState([]);
 
   const firstTableHead = { name: 'Name', email: 'Email Address', role: 'Role' };
   const secondTableHead = {
@@ -22,7 +23,7 @@ function App() {
   };
 
   useEffect(() => {
-    if (data)
+    if (data) {
       setLoopData(
         data.map((item) => {
           return {
@@ -33,11 +34,24 @@ function App() {
           };
         })
       );
+      setSecondLoopData(
+        data.map((item) => {
+          return {
+            email: item?.email,
+            joining: item?.joiningDate,
+            role: item?.role,
+          };
+        })
+      );
+    }
   }, []);
   return (
     <div className='App'>
       <div>
         <TableComp arr={loopData} header={firstTableHead} />
+      </div>
+      <div>
+        <TableComp arr={secondLoopData} header={secondTableHead} />
       </div>
     </div>
   );

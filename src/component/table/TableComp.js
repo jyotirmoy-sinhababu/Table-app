@@ -19,7 +19,7 @@ const TableComp = ({ arr, header }) => {
               <tr>
                 {item?.name && item?.img && (
                   <td>
-                    {item?.name} {item?.img}
+                    <img src={item?.img} alt='avataar' /> {item?.name}
                   </td>
                 )}
                 {item?.email && <td>{item?.email}</td>}
