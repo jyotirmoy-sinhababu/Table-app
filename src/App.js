@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './App.css';
 
 import TableComp from './component/table/TableComp';
@@ -5,13 +6,39 @@ import TableComp from './component/table/TableComp';
 import { data } from './component/utils/JasonData';
 
 function App() {
-  data.map((item) => {
-    return console.log(item);
-  });
+  const [loopData, setLoopData] = useState([]);
 
+  const firstTableHead = { name: 'Name', email: 'Email Address', role: 'Role' };
+  const secondTableHead = {
+    name: 'Email Address',
+    joining: 'Joining Date',
+    role: 'Role',
+  };
+  const thirdTableHead = {
+    name: 'Name',
+    city: 'City',
+    joining: 'Joining Date',
+    role: 'Role',
+  };
+
+  useEffect(() => {
+    if (data)
+      setLoopData(
+        data.map((item) => {
+          return {
+            name: item?.person?.name,
+            email: item?.email,
+            role: item?.role,
+            img: item?.person?.avatar,
+          };
+        })
+      );
+  }, []);
   return (
     <div className='App'>
-      <TableComp />
+      <div>
+        <TableComp arr={loopData} header={firstTableHead} />
+      </div>
     </div>
   );
 }
