@@ -2,3 +2,8 @@
   padding: 0;
   margin: 0;
 }
+
+.App {
+  margin: 80px;
+  padding: 80px;
+}

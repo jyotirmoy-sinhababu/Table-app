@@ -1,6 +1,14 @@
 import './tablecomp.css';
 
-const TableComp = ({ arr, header }) => {
+const TableComp = ({
+  arr,
+  header,
+  nameStyle,
+  txtDataStyle,
+  imgStyle,
+  emailStyle,
+  roleStyle,
+}) => {
   return (
     <table className='table-cnt'>
       <thead className='table-hd'>
@@ -39,30 +47,31 @@ const TableComp = ({ arr, header }) => {
         {arr &&
           arr.map((item) => {
             return (
-              <tr className='table-body-tr'>
+              <tr className='table-body-name'>
+                {' '}
                 {item?.name && item?.img && (
                   <td className='table-body-data'>
-                    <img src={item?.img} alt='avataar' />
+                    <img src={item?.img} alt='' />
                     <p>{item?.name}</p>
                   </td>
                 )}
                 {item?.email && (
-                  <td className='table-body-data'>
+                  <td className='table-body-email'>
                     <p>{item?.email}</p>
                   </td>
                 )}
                 {item?.city && (
-                  <td className='table-body-data'>
+                  <td className='table-body-city'>
                     <p>{item.city}</p>
                   </td>
                 )}
                 {item?.joining && (
-                  <td className='table-body-data'>
+                  <td className='table-body-joining'>
                     <p>{item.joining}</p>{' '}
                   </td>
                 )}
                 {item?.role && (
-                  <td className='table-body-data'>
+                  <td className='table-body-role'>
                     <p> {item?.role}</p>
                   </td>
                 )}

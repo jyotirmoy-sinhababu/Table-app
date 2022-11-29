@@ -177,7 +177,15 @@ function App() {
   return (
     <div className='App'>
       <div>
-        <TableComp arr={loopData} header={firstTableHead} />
+        <TableComp
+          nameStyle={nameStyle}
+          txtDataStyle={txtDataStyle}
+          imgStyle={imgStyle}
+          arr={loopData}
+          header={firstTableHead}
+          emailStyle={emailStyle}
+          roleStyle={roleStyle}
+        />
       </div>
       <div>
         <TableComp arr={secondLoopData} header={secondTableHead} />
